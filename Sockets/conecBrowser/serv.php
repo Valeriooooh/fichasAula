@@ -1,6 +1,6 @@
 <?php
 
-$port = 12335;
+$port = 243465;
 
 set_time_limit(0);
 
@@ -25,9 +25,11 @@ do {
     $msg = socket_read($clientSocket, $port);
 
     $msg = trim($msg);
-    echo " Cliente disse: " . $msg . "\n\n";
+    echo date('h:i');
+    echo "Cliente disse: " . $msg . "\n\n";
     $line = new Chat();
-    echo "Resposta: ";
+    echo date('H:i');
+    echo "\nResposta: ";
     $replay = $line->lerLinha();
 
     socket_write($clientSocket, $replay, strlen($replay));
